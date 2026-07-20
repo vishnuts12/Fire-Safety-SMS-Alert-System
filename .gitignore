@@ -1,0 +1,29 @@
+# Compiled Arduino files
+*.elf
+*.hex
+*.bin
+
+# Object files
+*.o
+*.obj
+
+# Backup files
+*.ino backup
+*.ino.save
+*.bak
+
+# Build folders
+build/
+bin/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# IDE folders (VSCode, etc.)
+.vscode/
+.idea/
+
+# Python cache (if you use Python scripts)
+_pycache_/
+*.pyc
