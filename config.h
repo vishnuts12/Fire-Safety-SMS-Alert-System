@@ -8,9 +8,7 @@ constexpr char PROJECT_NAME[] = "Fire Safety SMS Alert";
 constexpr char HOSPITAL_NAME[] = "H-BLOCK";
 
 //defining Version 1.0.0
-constexpr uint8_t FW_MAJOR = 1;
-constexpr uint8_t FW_MINOR = 0;
-constexpr uint8_t FW_PATCH = 0;
+#include "version.h"
 
 //Pump Inputs
 constexpr uint8_t PIN_HJ = 2;
