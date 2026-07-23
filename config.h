@@ -38,29 +38,7 @@ constexpr uint8_t PIN_LCD_D6 = A2;
 constexpr uint8_t PIN_LCD_D7 = A3;
 
 //Enumerations
-enum class PumpState
-{
-    OFF,
-    ON
-};
-
-enum class ContactType
-{
-    NO,
-    NC
-};
-
-enum class FaultCode
-{
-    None,
-    LCD,
-    GSM,
-    SIM,
-    Network,
-    SMS,
-    EEPROM,
-    Unknown
-};
+#include "types.h"
 
 //Timing constants
 constexpr unsigned long HEARTBEAT_INTERVAL_MS = 5000;

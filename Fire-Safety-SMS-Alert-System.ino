@@ -1,3 +1,6 @@
+#include "version.h"
+#include "types.h"
+
 void setup() {
   // put your setup code here, to run once:
 
