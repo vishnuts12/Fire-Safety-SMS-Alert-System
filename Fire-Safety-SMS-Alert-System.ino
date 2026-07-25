@@ -1,6 +1,7 @@
 #include "version.h"
 #include "types.h"
 #include "pins.h"
+#include "constants.h"
 
 void setup() {
   // put your setup code here, to run once:
