@@ -1,56 +1,81 @@
+/******************************************************************************
+ *
+ * Project : Fire Safety SMS Alert System
+ * File    : config.h
+ * Author  : Vishnu T S
+ * Version : 1.0.0
+ *
+ * Description:
+ * Project-specific configuration.
+ *
+ ******************************************************************************/
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include <Arduino.h> //Standard Arduino Libraries
-
-//Project Information
-constexpr char PROJECT_NAME[] = "Fire Safety SMS Alert";
-constexpr char HOSPITAL_NAME[] = "H-BLOCK";
-
-//defining Version 1.0.0
+#include <Arduino.h>
 #include "version.h"
-
-//Pump Inputs
-constexpr uint8_t PIN_HJ = 2;
-constexpr uint8_t PIN_SJ = 3;
-constexpr uint8_t PIN_HM = 4;
-constexpr uint8_t PIN_SM = 5;
-constexpr uint8_t PIN_DP = 6;
-
-//Test Button
-constexpr uint8_t PIN_TEST = 7;
-
-// SIM800L
-constexpr uint8_t PIN_SIM_TX = 8;
-constexpr uint8_t PIN_SIM_RX = 9;
-
-// LEDs
-constexpr uint8_t PIN_LED_POWER = 10;
-constexpr uint8_t PIN_LED_GSM = 11;
-constexpr uint8_t PIN_LED_FAULT = A4;
-
-// LCD
-constexpr uint8_t PIN_LCD_RS = 12;
-constexpr uint8_t PIN_LCD_EN = 13;
-constexpr uint8_t PIN_LCD_D4 = A0;
-constexpr uint8_t PIN_LCD_D5 = A1;
-constexpr uint8_t PIN_LCD_D6 = A2;
-constexpr uint8_t PIN_LCD_D7 = A3;
-
-//Enumerations
 #include "types.h"
+#include "constants.h"
 
-//Timing constants
-constexpr unsigned long HEARTBEAT_INTERVAL_MS = 5000;
-constexpr unsigned long LCD_PAGE_INTERVAL_MS = 5000;
-constexpr unsigned long BUTTON_HOLD_TIME_MS = 3000;
-constexpr unsigned long GSM_STARTUP_TIMEOUT_MS = 30000;
+/**************************************************************************
+ * Project Information
+ **************************************************************************/
 
-//Feature Flags
-constexpr bool ENABLE_GSM = true;
-constexpr bool ENABLE_EVENT_LOG = true;
-constexpr bool ENABLE_MAINTENANCE = true;
-constexpr bool ENABLE_HEARTBEAT = true;
+constexpr char PROJECT_NAME[] = "Fire Safety SMS Alert System";
+
+constexpr char INSTALLATION_NAME[] = "H-Block";
+
+constexpr char ORGANIZATION_NAME[] = "Hospital";
+
+/**************************************************************************
+ * SMS Recipients
+ **************************************************************************/
+
+constexpr char FIRE_SAFETY_CHIEF[] = "+91XXXXXXXXXX";
+
+constexpr char DUTY_STAFF[] = "+91XXXXXXXXXX";
+
+/**************************************************************************
+ * Pump Contact Configuration
+ **************************************************************************/
+
+constexpr ContactType PUMP_CONTACT_TYPE[NUMBER_OF_PUMPS] =
+{
+    ContactType::NO,   // Hydrant Jockey
+
+    ContactType::NO,   // Sprinkler Jockey
+
+    ContactType::NC,   // Hydrant Main
+
+    ContactType::NO,   // Sprinkler Main
+
+    ContactType::NC    // Diesel Pump
+};
+
+/**************************************************************************
+ * Pump Names
+ **************************************************************************/
+
+constexpr const char* PUMP_NAMES[NUMBER_OF_PUMPS] =
+{
+    "Hydrant Jockey",
+    "Sprinkler Jockey",
+    "Hydrant Main",
+    "Sprinkler Main",
+    "Diesel Pump"
+};
+
+/**************************************************************************
+ * Feature Configuration
+ **************************************************************************/
+
 constexpr bool ENABLE_STARTUP_SMS = true;
 
-#endif
+constexpr bool ENABLE_EVENT_LOG = true;
+
+constexpr bool ENABLE_HEARTBEAT_LED = true;
+
+constexpr bool ENABLE_SELF_TEST = true;
+
+#endif // CONFIG_H

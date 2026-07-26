@@ -2,6 +2,7 @@
 #include "types.h"
 #include "pins.h"
 #include "constants.h"
+#include "config.h"
 
 void setup() {
   // put your setup code here, to run once:
