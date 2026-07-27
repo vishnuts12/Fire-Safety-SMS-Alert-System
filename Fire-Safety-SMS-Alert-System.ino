@@ -4,8 +4,16 @@
 #include "constants.h"
 #include "config.h"
 
+#include "hardware.h"
+#include "lcd_manager.h"
+
 void setup() {
-  // put your setup code here, to run once:
+
+    initializeHardware();
+
+    initializeLCD();
+
+    displayStartupScreen();
 
 }
 
