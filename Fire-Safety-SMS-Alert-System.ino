@@ -7,6 +7,8 @@
 #include "hardware.h"
 #include "lcd_manager.h"
 
+#include "gsm_manager.h"
+
 void setup() {
 
     initializeHardware();
@@ -14,6 +16,8 @@ void setup() {
     initializeLCD();
 
     displayStartupScreen();
+
+    initializeGSM();
 
 }
 

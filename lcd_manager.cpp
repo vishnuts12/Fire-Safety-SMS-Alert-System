@@ -42,7 +42,7 @@ void displayStartupScreen()
     lcd.print(INSTALLATION_NAME);
 
     lcd.setCursor(0,3);
-    lcd.print("Ver ");
+    lcd.print("Version ");
     lcd.print(FW_MAJOR);
     lcd.print('.');
     lcd.print(FW_MINOR);
