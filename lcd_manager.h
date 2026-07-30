@@ -14,4 +14,10 @@ void initializeLCD();
 
 void displayStartupScreen();
 
+void displayGSMInitializing();
+
+void displayGSMReady();
+
+void displayGSMFailure();
+
 #endif

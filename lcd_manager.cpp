@@ -49,3 +49,36 @@ void displayStartupScreen()
     lcd.print('.');
     lcd.print(FW_PATCH);
 }
+
+void displayGSMInitializing()
+{
+    lcd.clear();
+
+    lcd.setCursor(0,0);
+    lcd.print("Initializing");
+
+    lcd.setCursor(0,1);
+    lcd.print("GSM Module...");
+}
+
+void displayGSMReady()
+{
+    lcd.clear();
+
+    lcd.setCursor(0,0);
+    lcd.print("GSM Module");
+
+    lcd.setCursor(0,1);
+    lcd.print("Ready");
+}
+
+void displayGSMFailure()
+{
+    lcd.clear();
+
+    lcd.setCursor(0,0);
+    lcd.print("GSM Module");
+
+    lcd.setCursor(0,1);
+    lcd.print("Not Found");
+}

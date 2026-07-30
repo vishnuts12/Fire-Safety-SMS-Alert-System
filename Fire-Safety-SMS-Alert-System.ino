@@ -18,6 +18,7 @@ void setup() {
     displayStartupScreen();
 
     initializeGSM();
+    
 
 }
 

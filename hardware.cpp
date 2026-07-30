@@ -2,12 +2,21 @@
  *
  * Project : Fire Safety SMS Alert System
  * File    : hardware.cpp
+ * Author  : Vishnu T S
+ * Version : 1.0.0
+ *
+ * Description:
+ * Hardware abstraction layer implementation.
  *
  ******************************************************************************/
 
 #include "hardware.h"
 
 #include "pins.h"
+
+/**************************************************************************
+ * Hardware Initialization
+ **************************************************************************/
 
 void initializeHardware()
 {
@@ -38,4 +47,37 @@ void initializeHardware()
      ***********************/
 
     pinMode(PIN_TEST_BUTTON, INPUT_PULLUP);
+}
+
+/**************************************************************************
+ * LED Control
+ **************************************************************************/
+
+void setPowerLED(bool state)
+{
+    digitalWrite(PIN_POWER_LED, state);
+}
+
+void setGSMLed(bool state)
+{
+    digitalWrite(PIN_GSM_LED, state);
+}
+
+void setFaultLED(bool state)
+{
+    digitalWrite(PIN_FAULT_LED, state);
+}
+
+void blinkLED(uint8_t pin,
+              uint8_t times,
+              uint16_t delayTime)
+{
+    for (uint8_t i = 0; i < times; i++)
+    {
+        digitalWrite(pin, HIGH);
+        delay(delayTime);
+
+        digitalWrite(pin, LOW);
+        delay(delayTime);
+    }
 }
