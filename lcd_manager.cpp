@@ -2,6 +2,11 @@
  *
  * Project : Fire Safety SMS Alert System
  * File    : lcd_manager.cpp
+ * Author  : Vishnu T S
+ * Version : 1.0.0
+ *
+ * Description:
+ * LCD Display Implementation
  *
  ******************************************************************************/
 
@@ -48,6 +53,26 @@ void displayStartupScreen()
     lcd.print(FW_MINOR);
     lcd.print('.');
     lcd.print(FW_PATCH);
+}
+
+void displayMessage(const char* line1,
+                    const char* line2,
+                    const char* line3,
+                    const char* line4)
+{
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print(line1);
+
+    lcd.setCursor(0, 1);
+    lcd.print(line2);
+
+    lcd.setCursor(0, 2);
+    lcd.print(line3);
+
+    lcd.setCursor(0, 3);
+    lcd.print(line4);
 }
 
 void displayGSMInitializing()

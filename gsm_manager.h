@@ -2,6 +2,11 @@
  *
  * Project : Fire Safety SMS Alert System
  * File    : gsm_manager.h
+ * Author  : Vishnu T S
+ * Version : 1.0.0
+ *
+ * Description:
+ * GSM Manager Layer
  *
  ******************************************************************************/
 
