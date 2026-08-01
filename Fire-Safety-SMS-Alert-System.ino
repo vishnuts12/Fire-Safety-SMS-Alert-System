@@ -28,11 +28,13 @@ void setup() {
     ""
 );
 
-delay(1000);
+    delay(5000);
 
     initializeGSM();
 
-    if (sendATCommand("AT", "OK", 2000))
+    delay(5000);
+
+    if (sendATCommand("AT", "OK", 5000))
 {
 
     displayMessage(
@@ -54,20 +56,20 @@ else
     setFaultLED(true);
 }
 
-delay(1000);
+delay(5000);
     
-sendATCommand("ATE0", "OK", 2000);
+sendATCommand("ATE0", "OK", 5000);
 
-sendATCommand("AT+CSQ", "OK", 3000);
+sendATCommand("AT+CSQ", "OK", 5000);
 
 displayMessage(
     "Checking",
     "Network..."
 );
 
-delay(1000);
+delay(5000);
 
-if (sendATCommand("AT+CREG?", "OK", 3000))
+if (sendATCommand("AT+CREG?", "OK", 5000))
 {
     displayMessage("System",
                    "Ready");
@@ -78,7 +80,31 @@ else
                    "Error");
 }
 
-sendATCommand("AT+CMGF=1", "OK", 3000);
+    delay(5000);
+
+sendATCommand("AT+CMGF=1", "OK", 5000);
+
+displayMessage(
+    "Sending",
+    "Test SMS..."
+);
+
+if (sendSMS("+918848488050",
+            "Fire Safety SMS Alert System Test"))
+{
+    displayMessage(
+        "SMS",
+        "Sent",
+        "Successfully"
+    );
+}
+else
+{
+    displayMessage(
+        "SMS",
+        "Send Failed"
+    );
+}
 
 }
 

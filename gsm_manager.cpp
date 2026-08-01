@@ -58,3 +58,59 @@ bool sendATCommand(const char* command,
 
     return false;
 }
+
+bool sendSMS(const char* phoneNumber, const char* message)
+{
+    // Set SMS text mode
+    if (!sendATCommand("AT+CMGF=1", "OK", 3000))
+    {
+        return false;
+    }
+
+    // Start SMS command
+    gsm.print("AT+CMGS=\"");
+    gsm.print(phoneNumber);
+    gsm.println("\"");
+
+    // Wait for the '>' prompt
+    unsigned long startTime = millis();
+    while (millis() - startTime < 5000)
+    {
+        if (gsm.available())
+        {
+            char c = gsm.read();
+
+            if (c == '>')
+            {
+                break;
+            }
+        }
+    }
+
+    // Send the message
+    gsm.print(message);
+
+    // Send Ctrl+Z (ASCII 26)
+    gsm.write(26);
+
+    // Wait for confirmation
+    String response = "";
+
+    startTime = millis();
+
+    while (millis() - startTime < 15000)
+    {
+        while (gsm.available())
+        {
+            char c = gsm.read();
+            response += c;
+
+            if (response.indexOf("OK") != -1)
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
