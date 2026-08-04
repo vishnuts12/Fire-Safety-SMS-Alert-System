@@ -17,6 +17,7 @@
 #include "pins.h"
 #include "version.h"
 #include "config.h"
+#include "messages.h"
 
 LiquidCrystal lcd(
     PIN_LCD_RS,

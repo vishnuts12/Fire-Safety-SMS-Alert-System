@@ -32,9 +32,14 @@ constexpr char ORGANIZATION_NAME[] = "Hospital";
  * SMS Recipients
  **************************************************************************/
 
-constexpr char FIRE_SAFETY_CHIEF[] = "+91XXXXXXXXXX";
+constexpr const char* SMS_RECIPIENTS[] =
+{
+    "+91XXXXXXXXXX",   // Fire Safety Chief
+    "+91XXXXXXXXXX"    // Duty Staff
+};
 
-constexpr char DUTY_STAFF[] = "+91XXXXXXXXXX";
+constexpr uint8_t NUMBER_OF_SMS_RECIPIENTS =
+    sizeof(SMS_RECIPIENTS) / sizeof(SMS_RECIPIENTS[0]);
 
 /**************************************************************************
  * Pump Contact Configuration
@@ -51,19 +56,6 @@ constexpr ContactType PUMP_CONTACT_TYPE[NUMBER_OF_PUMPS] =
     ContactType::NO,   // Sprinkler Main
 
     ContactType::NC    // Diesel Pump
-};
-
-/**************************************************************************
- * Pump Names
- **************************************************************************/
-
-constexpr const char* PUMP_NAMES[NUMBER_OF_PUMPS] =
-{
-    "Hydrant Jockey",
-    "Sprinkler Jockey",
-    "Hydrant Main",
-    "Sprinkler Main",
-    "Diesel Pump"
 };
 
 /**************************************************************************

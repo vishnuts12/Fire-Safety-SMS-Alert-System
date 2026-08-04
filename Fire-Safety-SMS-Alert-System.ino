@@ -6,10 +6,9 @@
 
 #include "hardware.h"
 #include "lcd_manager.h"
-
 #include "gsm_manager.h"
-
 #include "pump_manager.h"
+#include "event_manager.h"
 
 void setup() {
 
@@ -18,6 +17,8 @@ void setup() {
     initializeHardware();
 
     initializePumpManager();
+
+    initializeEventManager();
 
     initializeLCD();
 
@@ -112,9 +113,9 @@ else
 
 }
 
-void loop() {
-
+void loop()
+{
     updatePumpStates();
-  // put your main code here, to run repeatedly:
 
+    processPumpEvents();
 }

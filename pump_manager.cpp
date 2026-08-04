@@ -15,6 +15,7 @@
 #include "pins.h"
 #include "config.h"
 #include "hardware.h"
+#include "messages.h"
 
 static PumpState currentPumpState[5];
 static PumpState previousPumpState[5];
@@ -87,4 +88,16 @@ bool pumpStopped(PumpID pump)
 
     return (previousPumpState[index] == PumpState::ON) &&
            (currentPumpState[index] == PumpState::OFF);
+}
+
+const char* getPumpName(PumpID pump)
+{
+    uint8_t index = static_cast<uint8_t>(pump);
+
+    if (index < NUMBER_OF_PUMPS)
+    {
+        return PUMP_NAMES[index];
+    }
+
+    return MSG_UNKNOWN_PUMP;
 }

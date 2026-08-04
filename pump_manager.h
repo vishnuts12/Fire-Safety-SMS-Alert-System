@@ -40,4 +40,6 @@ bool pumpStarted(PumpID pump);
 
 bool pumpStopped(PumpID pump);
 
+const char* getPumpName(PumpID pump);
+
 #endif // PUMP_MANAGER_H

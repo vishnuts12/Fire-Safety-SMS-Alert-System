@@ -18,6 +18,8 @@
 
 #include "config.h"
 
+#include "messages.h"
+
 SoftwareSerial gsm(PIN_GSM_RX,PIN_GSM_TX);
 
 bool initializeGSM()
