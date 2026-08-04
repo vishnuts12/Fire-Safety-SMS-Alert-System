@@ -9,11 +9,15 @@
 
 #include "gsm_manager.h"
 
+#include "pump_manager.h"
+
 void setup() {
 
     Serial.begin(115200);
 
     initializeHardware();
+
+    initializePumpManager();
 
     initializeLCD();
 
@@ -109,6 +113,8 @@ else
 }
 
 void loop() {
+
+    updatePumpStates();
   // put your main code here, to run repeatedly:
 
 }
