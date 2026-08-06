@@ -51,4 +51,16 @@ constexpr uint8_t NUMBER_OF_PUMPS = 5;
 constexpr uint8_t LCD_COLUMNS = 16;
 constexpr uint8_t LCD_ROWS = 4;
 
+/**************************************************************************
+ * Timing Constants
+ **************************************************************************/
+
+constexpr uint16_t GSM_LED_BLINK_TIME = 150;
+
+/**************************************************************************
+ * GSM Timing
+ **************************************************************************/
+
+constexpr uint16_t GSM_BOOT_TIME = 8000;
+
 #endif // CONSTANTS_H

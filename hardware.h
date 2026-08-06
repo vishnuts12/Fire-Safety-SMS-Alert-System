@@ -29,6 +29,8 @@ void setPowerLED(bool state);
 void setGSMLed(bool state);
 void setFaultLED(bool state);
 
+void blinkGSMLed(uint8_t times);
+
 void blinkLED(uint8_t pin,
               uint8_t times,
               uint16_t delayTime = 150);

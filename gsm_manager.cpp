@@ -18,17 +18,92 @@
 
 #include "config.h"
 
+#include "lcd_manager.h"
+
+#include "hardware.h"
+
 #include "messages.h"
 
 SoftwareSerial gsm(PIN_GSM_RX,PIN_GSM_TX);
 
 bool initializeGSM()
 {
+
+    displayMessage(
+        PROJECT_NAME,
+        INSTALLATION_NAME,
+        "",
+        MSG_INITIALIZING
+    );
+
     gsm.begin(9600);
 
-    delay(3000);     // Allow SIM800L to boot
+    delay(GSM_BOOT_TIME);
 
-    gsm.println("AT");
+    delay(2000);
+
+    blinkGSMLed(2);
+
+    if (!sendATCommand("AT", "OK", 5000))
+    {
+        displayGSMFailure();
+        return false;
+    }
+
+    displayMessage(
+        PROJECT_NAME,
+        INSTALLATION_NAME,
+        "",
+        MSG_CHECK_SIGNAL
+    );
+
+    delay(2000);
+
+    if (!sendATCommand("ATE0", "OK", 5000))
+{
+    displayGSMFailure();
+    return false;
+}
+
+    if (!sendATCommand("AT+CSQ", "OK", 5000))
+    {
+        displayGSMFailure();
+        return false;
+    }
+
+    delay(2000);
+
+    displayMessage(
+        PROJECT_NAME,
+        INSTALLATION_NAME,
+        "",
+        MSG_CHECK_NETWORK
+    );
+
+    delay(2000);
+
+    if (!sendATCommand("AT+CREG?", "OK", 5000))
+    {
+        displayGSMFailure();
+        return false;
+    }
+
+    if (!sendATCommand("AT+CMGF=1", "OK", 5000))
+    {
+        displayGSMFailure();
+        return false;
+    }
+
+    delay(2000);
+
+    displayMessage(
+        PROJECT_NAME,
+        INSTALLATION_NAME,
+        "",
+        MSG_GSM_READY
+    );
+
+    delay(2000);
 
     return true;
 }

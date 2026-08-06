@@ -30,4 +30,6 @@ void displayGSMReady();
 
 void displayGSMFailure();
 
+void displayMonitoringScreen();
+
 #endif

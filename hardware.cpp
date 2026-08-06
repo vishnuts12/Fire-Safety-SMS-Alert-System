@@ -14,6 +14,8 @@
 
 #include "pins.h"
 
+#include "constants.h"
+
 /**************************************************************************
  * Hardware Initialization
  **************************************************************************/
@@ -79,5 +81,17 @@ void blinkLED(uint8_t pin,
 
         digitalWrite(pin, LOW);
         delay(delayTime);
+    }
+}
+
+void blinkGSMLed(uint8_t times)
+{
+    for (uint8_t i = 0; i < times; i++)
+    {
+        digitalWrite(PIN_GSM_LED, HIGH);
+        delay(GSM_LED_BLINK_TIME);
+
+        digitalWrite(PIN_GSM_LED, LOW);
+        delay(GSM_LED_BLINK_TIME);
     }
 }

@@ -108,3 +108,13 @@ void displayGSMFailure()
     lcd.setCursor(0,1);
     lcd.print("Not Found");
 }
+
+void displayMonitoringScreen()
+{
+    displayMessage(
+        PROJECT_NAME,
+        INSTALLATION_NAME,
+        MSG_MONITORING,
+        MSG_NETWORK_OK
+    );
+}

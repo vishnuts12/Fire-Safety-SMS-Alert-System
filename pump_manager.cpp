@@ -17,8 +17,9 @@
 #include "hardware.h"
 #include "messages.h"
 
-static PumpState currentPumpState[5];
-static PumpState previousPumpState[5];
+static PumpState currentPumpState[NUMBER_OF_PUMPS];
+
+static PumpState previousPumpState[NUMBER_OF_PUMPS];
 
 static const uint8_t pumpPins[NUMBER_OF_PUMPS] =
 {
