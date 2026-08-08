@@ -36,12 +36,22 @@ static PumpState readPumpState(uint8_t pumpIndex)
 
     if (PUMP_CONTACT_TYPE[pumpIndex] == ContactType::NO)
     {
-        return inputState ? PumpState::ON
-                          : PumpState::OFF;
+        // INPUT_PULLUP:
+        // HIGH = contact open  = pump OFF
+        // LOW  = contact closed = pump ON
+        return (inputState == LOW)
+               ? PumpState::ON
+               : PumpState::OFF;
     }
-
-    return inputState ? PumpState::OFF
-                      : PumpState::ON;
+    else
+    {
+        // INPUT_PULLUP:
+        // HIGH = contact open   = pump ON
+        // LOW  = contact closed = pump OFF
+        return (inputState == LOW)
+               ? PumpState::OFF
+               : PumpState::ON;
+    }
 }
 
 void initializePumpManager()

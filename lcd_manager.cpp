@@ -61,17 +61,27 @@ void displayMessage(const char* line1,
                     const char* line3,
                     const char* line4)
 {
-    lcd.clear();
-
+    // Clear line 1
+    lcd.setCursor(0, 0);
+    lcd.print("                ");
     lcd.setCursor(0, 0);
     lcd.print(line1);
 
+    // Clear line 2
+    lcd.setCursor(0, 1);
+    lcd.print("                ");
     lcd.setCursor(0, 1);
     lcd.print(line2);
 
+    // Clear line 3
+    lcd.setCursor(0, 2);
+    lcd.print("                ");
     lcd.setCursor(0, 2);
     lcd.print(line3);
 
+    // Clear line 4
+    lcd.setCursor(0, 3);
+    lcd.print("                ");
     lcd.setCursor(0, 3);
     lcd.print(line4);
 }

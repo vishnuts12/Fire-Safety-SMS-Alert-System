@@ -40,8 +40,6 @@ bool initializeGSM()
 
     delay(GSM_BOOT_TIME);
 
-    delay(2000);
-
     blinkGSMLed(2);
 
     if (!sendATCommand("AT", "OK", 5000))
@@ -57,13 +55,15 @@ bool initializeGSM()
         MSG_CHECK_SIGNAL
     );
 
-    delay(2000);
+    delay(1500);
+
+    blinkGSMLed(2);
 
     if (!sendATCommand("ATE0", "OK", 5000))
-{
+    {
     displayGSMFailure();
     return false;
-}
+    }
 
     if (!sendATCommand("AT+CSQ", "OK", 5000))
     {
@@ -73,6 +73,8 @@ bool initializeGSM()
 
     delay(2000);
 
+    blinkGSMLed(2);
+
     displayMessage(
         PROJECT_NAME,
         INSTALLATION_NAME,
@@ -80,7 +82,9 @@ bool initializeGSM()
         MSG_CHECK_NETWORK
     );
 
-    delay(2000);
+    delay(1500);
+
+    blinkGSMLed(2);
 
     if (!sendATCommand("AT+CREG?", "OK", 5000))
     {
@@ -94,7 +98,9 @@ bool initializeGSM()
         return false;
     }
 
-    delay(2000);
+    delay(1500);
+
+    blinkGSMLed(2);
 
     displayMessage(
         PROJECT_NAME,

@@ -34,8 +34,8 @@ constexpr char ORGANIZATION_NAME[] = "Hospital";
 
 constexpr const char* SMS_RECIPIENTS[] =
 {
-    "+91XXXXXXXXXX",   // Fire Safety Chief
-    "+91XXXXXXXXXX"    // Duty Staff
+    "+918848488050",   // Fire Safety Chief
+    "+919037009939"    // Duty Staff
 };
 
 constexpr uint8_t NUMBER_OF_SMS_RECIPIENTS =
@@ -51,11 +51,11 @@ constexpr ContactType PUMP_CONTACT_TYPE[NUMBER_OF_PUMPS] =
 
     ContactType::NO,   // Sprinkler Jockey
 
-    ContactType::NC,   // Hydrant Main
+    ContactType::NO,   // Hydrant Main
 
     ContactType::NO,   // Sprinkler Main
 
-    ContactType::NC    // Diesel Pump
+    ContactType::NO    // Diesel Pump
 };
 
 /**************************************************************************
